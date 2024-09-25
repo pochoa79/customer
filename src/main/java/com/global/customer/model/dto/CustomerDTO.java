@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.UUID;
 
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Builder
 public class CustomerDTO {
 

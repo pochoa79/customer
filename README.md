@@ -36,8 +36,7 @@ devuelve respuestas en formato JSON.
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+git clone https://github.com/pochoa79/customer.git
 ```
 
 ### 2. Properties configuracion
@@ -122,7 +121,7 @@ Body Entrada (JSON):
 
 ```bash
 {
-    "message": "El correo ya registrado",
+    "message": "El correo ya registrado: pochoa75@google.org",
     "details": "uri=/customer/onb/account"
 }
 
@@ -137,7 +136,7 @@ Body Entrada (JSON):
 }
 ```
 
-#6. Configuracion y Documentación de la API con Swagger
+###6. Configuracion y Documentación de la API con Swagger
  
   - Se crear archivo application.yaml que te permite configurar la intefaz y generador docmetacion.
 
@@ -153,6 +152,5 @@ springdoc:
  - Para ingresar interfaz interactiva de la API en http://localhost:8080/customer/swagger-ui/index.html.
 
 
-#7. Autor
-Pablo Ochoa.
-Contacto: pochoa79@gmail.com
+###7. Autor 
+Pablo Ochoa Contacto: pochoa79@gmail.com

@@ -1,7 +1,6 @@
 package com.global.customer.exception;
 
 
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,21 +13,24 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomerAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
     public ResponseEntity<?> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(errorDetails, HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
+    @ExceptionHandler(InvalidPasswordFormatException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<?> handleInvalidPasswordFormatException(InvalidPasswordFormatException ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND) // 404
-    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
-    public String handleNotFound(ChangeSetPersister.NotFoundException ex) {
-        return ex.getMessage(); // O una vista de error personalizada
+    @ExceptionHandler(InvalidEmailFormatException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<?> handleInvalidEmailFormatException(InvalidEmailFormatException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
@@ -37,29 +39,5 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public static class ErrorDetails {
-        private String message;
-        private String details;
 
-        public ErrorDetails(String message, String details) {
-            this.message = message;
-            this.details = details;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public String getDetails() {
-            return details;
-        }
-
-        public void setDetails(String details) {
-            this.details = details;
-        }
-    }
 }

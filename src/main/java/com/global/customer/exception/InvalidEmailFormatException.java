@@ -3,11 +3,10 @@ package com.global.customer.exception;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
 @Service
 @RequiredArgsConstructor
-public class CustomerAlreadyExistsException extends RuntimeException {
-    public CustomerAlreadyExistsException(String message) {
+public class InvalidEmailFormatException extends RuntimeException {
+    public InvalidEmailFormatException(String message) {
         super(message);
     }
 }

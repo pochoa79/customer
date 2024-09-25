@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.UUID;
 
 
-@Schema(name = "CustomerResponse", description = "Customer Transaction Register Response")
+@Schema(name = "CustomerResponse", description = "Customer Transaction Response")
 @Data
 public class CustomerResponse {
 
@@ -17,13 +17,11 @@ public class CustomerResponse {
     private UUID customerId;;
     @Schema(
             description = "Unique email del customerId.",
-            example = "jalvare79@gmail.com",
-            required = true)
+            example = "jalvare79@gmail.com")
     private String email;
     @Schema(
             description = "Name del customerID.",
-            example = "Juan Alvarez",
-            required = true)
+            example = "Juan Alvarez")
     private String name;
 
     @Schema(
@@ -39,12 +37,12 @@ public class CustomerResponse {
             example = "2024-09-24T13:04:11.6917954")
     private String lastLogin;
     @Schema(
-            description = "Generate token para customerID.",
+            description = "Generate token para customerId.",
             example = "eyJhbGciOiJub25lIn0.eyJzdWIiOiJwb2Nob2E3NUBnb29nbGUub3JnIiwiaWF0IjoxNzI3MTk3NDUxLCJleHAiOjE3MjcyMzM0NTF9")
     private String token;
     @Schema(
-            description = "Status del customerId",
-            example = "TRUE")
+            description = "Status del customerId.",
+            example = "true")
     private boolean isActive;
 
 }

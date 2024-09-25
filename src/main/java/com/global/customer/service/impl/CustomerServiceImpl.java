@@ -2,6 +2,8 @@ package com.global.customer.service.impl;
 
 import com.global.customer.api.CustomerResponse;
 import com.global.customer.exception.CustomerAlreadyExistsException;
+import com.global.customer.exception.InvalidEmailFormatException;
+import com.global.customer.exception.InvalidPasswordFormatException;
 import com.global.customer.mapper.CustomerMapper;
 import com.global.customer.model.dto.CustomerDTO;
 import com.global.customer.model.dto.PhoneDTO;
@@ -37,16 +39,16 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerResponse createCustomer(CustomerDTO customerDTO) {
 
         if (customerRepository.existsByEmail(customerDTO.getEmail())) {
-            throw new CustomerAlreadyExistsException("El correo ya registrado");
+            throw new CustomerAlreadyExistsException("El correo ya registrado: " + customerDTO.getEmail());
         }
 
         if (!customerDTO.getEmail().matches(validationProperties.getEmailRegex())) {
-            throw new IllegalArgumentException("Formato de correo inválido");
+            throw new InvalidEmailFormatException("Formato de correo inválido");
 
         }
 
         if (!customerDTO.getPassword().matches(validationProperties.getPasswordRegex())) {
-           throw new IllegalArgumentException("Formato de contraseña inválido");
+            throw new InvalidPasswordFormatException("Formato de contraseña inválido");
         }
 
 

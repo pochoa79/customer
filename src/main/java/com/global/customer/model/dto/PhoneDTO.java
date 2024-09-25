@@ -1,12 +1,15 @@
 package com.global.customer.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public class PhoneDTO {
     @Schema(
             description = "Number de telf del customerID.",

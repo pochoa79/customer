@@ -15,7 +15,7 @@ public class ValidationProperties {
 
 
     public ValidationProperties(@Value("${password.regex}") String passwordRegex,
-                               @Value("${email.regex}") String emailRegex) {
+                                @Value("${email.regex}") String emailRegex) {
         this.passwordRegex = passwordRegex;
         this.emailRegex = emailRegex;
     }
