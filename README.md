@@ -27,9 +27,16 @@ devuelve respuestas en formato JSON.
 - Pruebas unitarias incluidas (opcional).
 
 ## Requisitos
-
-- JDK 17+
-- Maven 3.6+
+- Plazo: 2 días, si tienes algún inconveniente con el tiempo comunicate con nosotros
+- Banco de datos en memoria. Ejemplo: HSQLDB o H2.
+- Proceso de build vía Gradle o Maven.
+- Persistencia con JPA. Ejemplo: EclipseLink, Hibernate u OpenJPA.
+- Framework SpringBoot.
+- Java 8+
+- Entrega en un repositorio público (github o bitbucket) con el código fuente y script de
+creación de BD.
+- Readme explicando cómo probarlo.
+- Diagrama de la solución.
 
 ## Configuración del proyecto
 
@@ -136,7 +143,7 @@ Body Entrada (JSON):
 }
 ```
 
-###6. Configuracion y Documentación de la API con Swagger
+### 6. Configuracion y Documentación de la API con Swagger
  
   - Se crear archivo application.yaml que te permite configurar la intefaz y generador docmetacion.
 
@@ -152,5 +159,5 @@ springdoc:
  - Para ingresar interfaz interactiva de la API en http://localhost:8080/customer/swagger-ui/index.html.
 
 
-###7. Autor 
+### 7. Autor 
 Pablo Ochoa Contacto: pochoa79@gmail.com
