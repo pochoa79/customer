@@ -1,0 +1,6 @@
+springdoc:
+  api-docs:
+    path: /customer/api-docs
+  swagger-ui:
+    path: /customer/swagger-ui.html
+  override-with-generic-response: false
